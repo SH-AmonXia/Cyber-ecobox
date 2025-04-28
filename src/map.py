@@ -19,5 +19,10 @@ def generate(name, mapSize):
     noise_image = perlinNoise(MAP_SIZE[mapSize], MAP_SIZE[mapSize], 128, 1, 1, 1, random.randint(1, 255))
     plt.imshow(noise_image, cmap='gray')
     plt.imsave(IMG_PATH+name+'.png', noise_image, cmap='gray')
+    return noise_image
+
+
+def store_map(noise_image):
+    plt.imsave(IMG_PATH+'nutrition_map.png', noise_image, cmap='gray')
 
 

@@ -6,7 +6,7 @@ class Move:
     def __init__(self, mapSize):
         self.display_surface = pg.display.get_surface()
         self.all_sprites = CameraGroup()
-        self.background_pic = pg.image.load(IMG_PATH + 'noise_img.png')
+        self.background_pic = pg.image.load(IMG_PATH + 'nutrition_map.png')
         self.camera_scale_ratio = 1
         self.camera_sizex, self.camera_sizey = self.display_surface.get_size()
         self.camerax = int(self.camera_sizex/2)
@@ -25,8 +25,8 @@ class Move:
         self.display_surface = pg.display.get_surface()
         print(self.camera_sizex, self.camera_sizey, self.camerax, self.cameray, self.camera_scale_ratio)
         scaled_background_pic = pg.transform.smoothscale(self.background_pic,
-                                                         (MAP_SIZE * self.camera_scale_ratio,
-                                                          MAP_SIZE * self.camera_scale_ratio))
+                                                         (self.mapSize * self.camera_scale_ratio,
+                                                          self.mapSize * self.camera_scale_ratio))
         self.display_surface.blit(scaled_background_pic, (self.camera_sizex/2-self.camerax, self.camera_sizey/2-self.cameray))
         self.all_sprites.customDraw()
         self.all_sprites.update(dt)

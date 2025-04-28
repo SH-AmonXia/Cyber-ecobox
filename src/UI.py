@@ -17,4 +17,3 @@ class UI(pg.sprite.Sprite):
     def update_elements(self):
         pass
 
-

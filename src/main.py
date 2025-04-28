@@ -10,21 +10,29 @@ import random
 
 
 class Game:
-    def __init__(self):
+    def __init__(self, saving_id, map_size, O2, CO2):
         pg.init()
         self.screen = pg.display.set_mode(WINDOW_SIZE, RESIZABLE)
         pg.display.set_caption("生态箱")
         self.clock = pg.time.Clock()
         self.fullScreen = False
         self.pause = False
-        self.move = Move(0)
         self.ui = UI()
-        generate("nutrition_map", 0)
+
+        if saving_id != "":
+            pass
+        else:
+            self.O2 = O2
+            self.C02 = CO2
+            self.nutrition_map = generate("nutrition_map", map_size)
+            self.move = Move(map_size)
 
     def run(self):
         while 1:
             for event in pg.event.get():
                 if event.type == QUIT:
+                    store_map(self.nutrition_map)
+                    # saving status
                     pg.quit()
                     sys.exit()
                 if event.type == KEYDOWN:
@@ -70,5 +78,5 @@ class Game:
 
 
 if __name__ == "__main__":
-    game = Game()
+    game = Game("", 0, 1000, 100)
     game.run()
