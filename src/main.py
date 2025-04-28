@@ -5,7 +5,7 @@ from const import *
 from movements import Move
 from UI import UI
 from map import *
-from individual import *
+import individual
 import random
 
 
@@ -19,7 +19,7 @@ class Game:
         self.pause = False
         self.move = Move(0)
         self.ui = UI()
-        generate("noise_img", 0)
+        generate("nutrition_map", 0)
 
     def run(self):
         while 1:
