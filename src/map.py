@@ -15,8 +15,8 @@ def perlinNoise(width, height, scale, octaves, persistence, lacunarity, seed):
     return noise
 
 
-def generate(name):
-    noise_image = perlinNoise(2048, 2048, 128, 1, 1, 1, random.randint(1, 255))
+def generate(name, mapSize):
+    noise_image = perlinNoise(MAP_SIZE[mapSize], MAP_SIZE[mapSize], 128, 1, 1, 1, random.randint(1, 255))
     plt.imshow(noise_image, cmap='gray')
     plt.imsave(IMG_PATH+name+'.png', noise_image, cmap='gray')
 
